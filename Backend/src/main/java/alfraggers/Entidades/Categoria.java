@@ -1,4 +1,4 @@
-package com.example.aifraggers;
+package alfraggers.alfraggers.Entidades;
 
 import jakarta.persistence.*;
 import lombok.Data;
