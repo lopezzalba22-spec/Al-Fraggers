@@ -1,6 +1,7 @@
 package alfraggers.Controladores;
 
-import alfraggers.alfraggers.repositorios.CategoriaRepository;
+import alfraggers.Entidades.Categoria;
+import alfraggers.repositorios.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

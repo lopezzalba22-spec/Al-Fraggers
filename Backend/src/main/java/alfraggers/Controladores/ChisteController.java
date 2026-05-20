@@ -1,7 +1,7 @@
 package alfraggers.Controladores;
 
-import alfraggers.alfraggers.Entidades.Chiste;
-import alfraggers.alfraggers.repositorios.ChisteRepository;
+import alfraggers.Entidades.Chiste;
+import alfraggers.repositorios.ChisteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

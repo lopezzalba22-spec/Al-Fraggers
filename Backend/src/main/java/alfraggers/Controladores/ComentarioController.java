@@ -1,7 +1,7 @@
 package alfraggers.Controladores;
 
-import alfraggers.alfraggers.Entidades.Comentario;
-import alfraggers.alfraggers.repositorios.ComentarioRepository;
+import alfraggers.Entidades.Comentario;
+import alfraggers.repositorios.ComentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
