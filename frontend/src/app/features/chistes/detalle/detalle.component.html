@@ -1,0 +1,30 @@
+<div style="max-width:800px; margin:0 auto; padding:2rem">
+  <a routerLink="/chistes">← Volver</a>
+
+  <div *ngIf="chiste() as c">
+    <span style="background:#eee; padding:0.2rem 0.5rem; border-radius:4px">
+      {{ c.categoria.nombre }}
+    </span>
+    <p style="font-size:1.3rem; margin:1rem 0">{{ c.texto }}</p>
+  </div>
+
+  <h3>💬 Comentarios ({{ comentarios().length }})</h3>
+
+  <div *ngFor="let com of comentarios()" style="border-left:3px solid #ccc; padding:0.5rem 1rem; margin-bottom:0.5rem">
+    <p>{{ com.mensaje }}</p>
+  </div>
+
+  <p *ngIf="comentarios().length === 0">Sin comentarios todavía</p>
+
+  <h4>Añadir comentario</h4>
+  <form [formGroup]="form" (ngSubmit)="enviar()">
+    <div>
+      <textarea formControlName="mensaje" rows="3" placeholder="Tu comentario..."></textarea>
+      <span *ngIf="form.get('mensaje')?.invalid && form.get('mensaje')?.touched">
+        Campo obligatorio
+      </span>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+    <span *ngIf="enviado()">✅ Comentario añadido</span>
+  </form>
+</div>

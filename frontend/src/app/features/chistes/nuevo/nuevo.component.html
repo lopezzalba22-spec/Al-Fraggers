@@ -1,0 +1,30 @@
+<div style="max-width:600px; margin:0 auto; padding:2rem">
+  <h2>➕ Nuevo chiste</h2>
+  <a routerLink="/chistes">← Volver</a>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin-top:1rem">
+    <div style="margin-bottom:1rem">
+      <label>Categoría *</label><br>
+      <select formControlName="categoriaId">
+        <option value="">Selecciona categoría</option>
+        <option *ngFor="let cat of categorias()" [value]="cat.id">{{ cat.nombre }}</option>
+      </select>
+      <span *ngIf="form.get('categoriaId')?.invalid && form.get('categoriaId')?.touched">
+        Obligatorio
+      </span>
+    </div>
+
+    <div style="margin-bottom:1rem">
+      <label>Chiste *</label><br>
+      <textarea formControlName="texto" rows="4" style="width:100%"
+        placeholder="Escribe el chiste..."></textarea>
+      <span *ngIf="form.get('texto')?.invalid && form.get('texto')?.touched">
+        Obligatorio
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid || enviando()">
+      {{ enviando() ? 'Guardando...' : 'Publicar 🎉' }}
+    </button>
+  </form>
+</div>
