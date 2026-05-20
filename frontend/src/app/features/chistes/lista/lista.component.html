@@ -1,0 +1,23 @@
+<div style="max-width:900px; margin:0 auto; padding:2rem">
+  <h1>😂 Chistes</h1>
+
+  <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem">
+    <button (click)="setFiltro('')">Todos ({{ chistes().length }})</button>
+    <button *ngFor="let cat of categorias()" (click)="setFiltro(cat.id.toString())">
+      {{ cat.nombre }}
+    </button>
+  </div>
+
+  <p>Mostrando {{ total() }} chistes</p>
+  <p *ngIf="loading()">Cargando...</p>
+
+  <div *ngFor="let c of chistesFiltrados()" style="border:1px solid #ccc; padding:1rem; margin-bottom:1rem; border-radius:8px">
+    <span style="background:#eee; padding:0.2rem 0.5rem; border-radius:4px; font-size:0.85rem">
+      {{ c.categoria.nombre }}
+    </span>
+    <p>{{ c.texto }}</p>
+    <a [routerLink]="['/chistes', c.id]">Ver detalle →</a>
+  </div>
+
+  <a routerLink="/chistes/nuevo">+ Añadir chiste</a>
+</div>
